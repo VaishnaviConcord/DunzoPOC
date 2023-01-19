@@ -10,20 +10,20 @@ export const counterSlice = createSlice({
   name,
   initialState,
   reducers: {
-    SET_PICKUP_ADDRESS: (state) => {
-        state.pickUpAddress=action.pickUpAddress
+    setPickupAddress: (state,action) => {
+        state.pickUpAddress=action.payload
     },
-    SET_DELIVERY_ADDRESS: (state) => {
-        state.deliveryAddress=action.deliveryAddress
+    setDeliveryAddress: (state,action) => {
+        state.deliveryAddress=action.payload
     },
-    SET_CATOGERY:(state) =>{
-        state.catogery=action.catogery
+    setCategory:(state,action) =>{
+        state.category=action.payload
     }
     
   },
 })
 
 // Action creators are generated for each case reducer function
-export const {SET_PICKUP_ADDRESS, SET_DELIVERY_ADDRESS, SET_CATOGERY    } = counterSlice.actions
+export const {setPickupAddress,setDeliveryAddress , setCategory } = counterSlice.actions
 
 export default counterSlice.reducer
