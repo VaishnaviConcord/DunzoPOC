@@ -8,6 +8,7 @@ import GetOTP from "./GetOTP";
 import Verification from "./Verification";
 import Register from "./Register";
 import TakeCam from "./TakeCam";
+import Address from "./Address"
 
 const Stack = createStackNavigator();
 
@@ -19,7 +20,8 @@ export const routes = {
   Register:Register,
   GetOTP:GetOTP,
   Verification:Verification,
-  TakeCam:TakeCam
+  TakeCam:TakeCam,
+  Address:Address
   };
 
 const Router = () => (
