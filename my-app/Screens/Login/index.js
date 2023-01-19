@@ -5,7 +5,9 @@ const Login = () =>{
     console.log(cleanedHmObj,"console.log(cleanedHmObj);");
     return (
         <View><Text>Hello guys
-            {cleanedHmObj}</Text></View>
+            {cleanedHmObj}</Text>
+            <Text>hhhhh</Text>
+            </View>
     )
 } 
 
