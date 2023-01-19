@@ -3,12 +3,14 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Navigation from "./Navigation";
 import Login from "./Login";
 import NewDelivery from "./NewDelivery"
+import Register from "./Register"
 
 const Stack = createStackNavigator();
 
 export const routes = {
   Login: Login,
   NewDelivery:NewDelivery,
+  Register:Register,
   Navigation: Navigation,
 };
 
