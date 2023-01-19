@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const name = 'currentOrder'
 const initialState= {
     pickUpAddress:"33A, K.k.nagar, citadel enclave society, pune",
-    peliveryAddress:"swiftwin ",
+    deliveryAddress:"swiftwin ",
     category:"Document"
 
   }
@@ -14,7 +14,7 @@ export const counterSlice = createSlice({
         state.pickUpAddress=action.pickUpAddress
     },
     SET_DELIVERY_ADDRESS: (state) => {
-        state.deliveryAddress=action.deliveryUpAddress
+        state.deliveryAddress=action.deliveryAddress
     },
     SET_CATOGERY:(state) =>{
         state.catogery=action.catogery

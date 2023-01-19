@@ -5,7 +5,7 @@ const NewDelivery = () =>{
     const { pickUpAddress , deliveryAddress} = useSelector((state) => state.currentOrder);
         
     return (
-        <View><Text>Hello guys
+        <View style={{marginTop:100}}><Text>Hello guys
             {pickUpAddress}</Text>
             
             <Text>vaishnavi kulkarni
