@@ -1,72 +1,28 @@
-// import { View , Text} from "react-native"
-// import { useDispatch, useSelector } from "react-redux";
-// const NewDelivery = () =>{
-    
-//     const { PickUpAddress } = useSelector((state) => state.pickUp);
-//     const { DeliveryAddress } = useSelector((state) => state.pickUp);
-//     console.log(PickUpAddress,"console.log(cleanedHmObj);");
-
-    
-//     return (
-//         <View><Text>Hello guys
-//             {PickUpAddress}</Text>
-            
-//             <Text>vaishnavi kulkarni
-//             {DeliveryAddress}</Text>
-            
-//             </View>
-//     )
-// } 
-
-// export default NewDelivery
-
-import { Text, View,TextInput, Image, TouchableOpacity } from "react-native";
-// import React, { useRef } from "react";
-import styles from "./styles";
+import { View, Text, Button } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
+import { setPickupAddress , setDeliveryAddress} from "../../store/reducers/currentOrder";
 
-const NewDelivery  = () => {
-  const { PickUpAddress } = useSelector((state) => state.pickUp);
-    const { DeliveryAddress } = useSelector((state) => state.pickUp);
-  //   const draftButtonRef = useRef();
+const NewDelivery = () => {
+  const { pickUpAddress, deliveryAddress } = useSelector(
+    (state) => state.currentOrder
+  );
+
+  const dispatch = useDispatch()
+  const updatePickupAddress = () => {
+    dispatch(setPickupAddress("planet earth"))
+  };
+  const updateDeliveryAddress = () => {
+    dispatch(setDeliveryAddress("planet mars"))
+  };
   return (
-    <View>
-      <View style={[styles.includestyle]}>
-        {/* <Image
-            style={[styles.imagestyle]}
-            source={require("assets/eye1.png")}
-          /> */}
-
-        <Text style={{ color: "#A9A9A9" }}>Pickup address*</Text>
-        <TextInput style={{ fontWeight: "bold" }}>Search pickup location { PickUpAddress }</TextInput>
-      </View>
-
-      <View style={[styles.includestyle]}>
-        {/* <Image
-            style={[styles.imagestyle]}
-            source={require("assets/eye1.png")}
-          /> */}
-
-        <Text style={{ color: "#A9A9A9" }}>Delivery address*</Text>
-        <TextInput style={{ fontWeight: "bold" }}>Search delivery location { DeliveryAddress }</TextInput>
-      </View>
-
-      <View style={[styles.includestyle]}>
-        {/* <Image
-            style={[styles.imagestyle]}
-            source={require("assets/eye1.png")}
-          /> */}
-
-        <Text style={{ color: "#A9A9A9" }}>Select Package contents*</Text>
-        <TextInput style={{ fontWeight: "bold" }}>e.g.Food,Document</TextInput>
-      </View>
-
-      <View style={styles.buttonText}>
-        {/* <Text>Cancel</Text> */}
-        <Text>Done</Text>
-      </View>
+    <View style={{ marginTop: 100 }}>
+      <Text>{pickUpAddress}</Text>
+      <Text>{deliveryAddress}</Text>
+      <Button title="Update Pickup Address" onPress={updatePickupAddress} />
+      <Button title="Update Delivery Address" onPress={updateDeliveryAddress} />
     </View>
   );
 };
 
-export default NewDelivery ;
+export default NewDelivery;
+
