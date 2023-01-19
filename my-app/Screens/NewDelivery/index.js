@@ -2,17 +2,14 @@ import { View , Text} from "react-native"
 import { useDispatch, useSelector } from "react-redux";
 const NewDelivery = () =>{
     
-    const { PickUpAddress } = useSelector((state) => state.pickUp);
-    const { DeliveryAddress } = useSelector((state) => state.pickUp);
-    console.log(PickUpAddress,"console.log(cleanedHmObj);");
-
-    
+    const { pickUpAddress , deliveryAddress} = useSelector((state) => state.currentOrder);
+        
     return (
         <View><Text>Hello guys
-            {PickUpAddress}</Text>
+            {pickUpAddress}</Text>
             
             <Text>vaishnavi kulkarni
-            {DeliveryAddress}</Text>
+            {deliveryAddress}</Text>
             
             </View>
     )
