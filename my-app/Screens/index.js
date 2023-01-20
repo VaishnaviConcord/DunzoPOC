@@ -9,6 +9,7 @@ import Verification from "./Verification";
 import Register from "./Register";
 import TakeCam from "./TakeCam";
 import Address from "./Address"
+import CurrentLocationMap from "./Address/Map"
 
 const Stack = createStackNavigator();
 
@@ -21,10 +22,17 @@ export const routes = {
   GetOTP:GetOTP,
   Verification:Verification,
   TakeCam:TakeCam,
-  Address:Address
+  Address:Address,
+  CurrentLocationMap:CurrentLocationMap
   };
 
-const Router = () => (
+const Router = () => {
+  
+  const navigateToMap = (navigation) => {
+    navigation.navigate('CurrentLocationMap');
+  }  
+
+  return (
   <NavigationContainer>
     <Stack.Navigator
       screenOptions={{
@@ -39,6 +47,6 @@ const Router = () => (
       })}
     </Stack.Navigator>
   </NavigationContainer>
-);
+)};
 
 export default Router;

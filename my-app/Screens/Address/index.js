@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet} from 'react-native';
 import { useDispatch } from 'react-redux';
 import { createSlice } from '@reduxjs/toolkit';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Maps from "./Map"
 
 export const addressSlice = createSlice({
   name: 'address',
@@ -21,8 +24,10 @@ export const addressSlice = createSlice({
 
 export const { setAddress } = addressSlice.actions;
 
+const Stack = createStackNavigator();
 
-const AddressForm = () => {
+const AddressForm = (props) => {
+  
   const [address, setAddressState] = useState({
     name: '',
     street: '',
@@ -38,6 +43,10 @@ const AddressForm = () => {
       [field]: text
     });
   }
+
+  const navigateToMap = (navigation) => {
+    props.navigation.navigate('CurrentLocationMap');
+  }  
 
   const handleSubmit = () => {
     dispatch(setAddress(address))
@@ -78,6 +87,13 @@ const AddressForm = () => {
       <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
         <Text style={styles.submitButtonText}>Submit</Text>
       </TouchableOpacity>
+
+        <View style={{margin:40, marginLeft:180}}>
+            <Text style={styles.label}>Or</Text>
+        </View>
+        <TouchableOpacity style={styles.submitButton} onPress={navigateToMap}>
+            <Text style={styles.submitButtonText}>Use Map</Text>
+        </TouchableOpacity>
     </View>
   );
 };
