@@ -88,7 +88,7 @@ const AddressForm = (props) => {
         <Text style={styles.submitButtonText}>Submit</Text>
       </TouchableOpacity>
 
-        <View style={{margin:40, marginLeft:180}}>
+        <View style={{margin:10, marginLeft:180}}>
             <Text style={styles.label}>Or</Text>
         </View>
         <TouchableOpacity style={styles.submitButton} onPress={navigateToMap}>
@@ -102,7 +102,7 @@ export default AddressForm;
 
 const styles = StyleSheet.create({
   formContainer: {
-    marginTop:70,
+    marginTop:30,
     alignSelf: 'stretch',
     padding: 20,
   },
