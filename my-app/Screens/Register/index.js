@@ -5,11 +5,10 @@ import React, { useState } from "react";
 
 export default function Register() {
 
-    const [userName, setUserName] = useState('');
-    const [userEmail, setUserEmail] = useState('');
-    const [userPassword, setUserPassword] = useState('');
-    const [userPhoneNumber, setUserPhoneNumber] = useState('');
-    const InputView = ({value, onChangeText, placeholder, secureTextEntry, imagename,ref})  => {
+    var userName,userEmail,userPassword,userPhoneNumber;
+    
+
+    const InputView = ({onChangeText, placeholder, secureTextEntry, imagename,name,text})  => {
 
         return (
         <View style={styles.SectionStyle}>
@@ -21,13 +20,27 @@ export default function Register() {
             secureTextEntry={secureTextEntry}
             placeholder={placeholder}
             autoCorrect={false}
-            value={value}
-            onChangeText={ onChangeText }
-            ref={{ref}}
+            name={name}
+            onChangeText={text => handleChange({ name, text })}
             />
             </View>
         );
 
+    }
+ 
+    handleChange = (event) => {
+    if(event.name == "username") {
+        userName = event.text
+    }
+    else if(event.name == "password") {
+        userPassword = event.text
+    }
+    else if(event.name == "email") {
+        userEmail = event.text
+    }
+    else if(event.name == "phonenumber") {
+        userPhoneNumber = event.text
+    }
     }
     
     const signUpAction = () => {
@@ -52,6 +65,11 @@ export default function Register() {
         const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         if (!(reg.test(userEmail) === true)) {
             alert('Please Enter Valid Email');
+            return;
+        }
+
+        if (userPhoneNumber.length != 10) {
+            alert('Please Enter Valid Phone number');
             return;
         }
         
@@ -90,26 +108,26 @@ export default function Register() {
                     
 <InputView placeholder="Enter Your Name Here"
    secureTextEntry="false"
-   ref={input => { this.name = input }}
-    onChangeText={(UserName) => setUserName(UserName)}
+   onChange={this.handleChange}
+   name="username"
   imagename={require('../Assets/name.png')}> </InputView>
 
 <InputView placeholder="Enter Your Email Here"
    secureTextEntry="false"
-   ref={input => { this.email = input }}
-   onChangeText={(UserEmail) => setUserEmail(UserEmail)}
+   onChange={this.handleChange}
+   name="email"
   imagename={require('../Assets/email.png')}> </InputView>
 
 <InputView placeholder="Enter Your Password Here"
    secureTextEntry="true"
-   ref={input => { this.password = input }}
-   onChangeText={(UserPassword) => setUserPassword(UserPassword)}
+   onChange={this.handleChange}
+   name="password"
   imagename={require('../Assets/password.png')}> </InputView>
 
 <InputView placeholder="Enter Your Phone Number Here"
    secureTextEntry="false"
-   ref={input => { this.phonenumber = input }}
-   onChangeText={(UserPhoneNumber) => setUserPhoneNumber(UserPhoneNumber)}
+   onChange={this.handleChange}
+   name="phonenumber"
   imagename={require('../Assets/phonenumber.png')}> </InputView>
 
 <Pressable style={styles.signup} onPress={signUpAction}>
@@ -177,7 +195,7 @@ export default function Register() {
             fontSize: 24,
             marginBottom: 30,
             fontWeight: "bold",
-            marginTop: 100,
+            marginTop: 50,
             color: '#FC8019',
         },    
         SectionStyle: {

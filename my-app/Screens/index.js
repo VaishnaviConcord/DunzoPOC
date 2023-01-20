@@ -26,7 +26,7 @@ const Router = () => (
   <NavigationContainer>
     <Stack.Navigator
       screenOptions={{
-        headerShown: false,
+        headerShown: true,
       }}
       initialRouteName="Navigation"
     >
