@@ -6,7 +6,7 @@ import Home from "./Home";
 import NewDelivery from "./NewDelivery"
 import GetOTP from "./GetOTP";
 import Verification from "./Verification";
-import RegisterNew from "./RegisterNew";
+import Register from "./Register";
 
 const Stack = createStackNavigator();
 
@@ -15,7 +15,7 @@ export const routes = {
   Home:Home,
   NewDelivery:NewDelivery,
   Navigation: Navigation,
-  RegisterNew:RegisterNew,
+  Register:Register,
   GetOTP:GetOTP,
   Verification:Verification,
 };
