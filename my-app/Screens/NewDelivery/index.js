@@ -1,34 +1,23 @@
-// import { View , Text} from "react-native"
-// import { useDispatch, useSelector } from "react-redux";
-// const NewDelivery = () =>{
-    
-//     const { PickUpAddress } = useSelector((state) => state.pickUp);
-//     const { DeliveryAddress } = useSelector((state) => state.pickUp);
-//     console.log(PickUpAddress,"console.log(cleanedHmObj);");
+import { Text, View,TextInput, Image,Button } from "react-native";
 
-    
-//     return (
-//         <View><Text>Hello guys
-//             {PickUpAddress}</Text>
-            
-//             <Text>vaishnavi kulkarni
-//             {DeliveryAddress}</Text>
-            
-//             </View>
-//     )
-// } 
-
-// export default NewDelivery
-
-import { Text, View,TextInput, Image, TouchableOpacity } from "react-native";
-// import React, { useRef } from "react";
 import styles from "./styles";
 import { useDispatch, useSelector } from "react-redux";
+import { setPickupAddress , setDeliveryAddress} from "../../store/reducers/currentOrder";
 
-const NewDelivery  = () => {
-  const { PickUpAddress } = useSelector((state) => state.pickUp);
-    const { DeliveryAddress } = useSelector((state) => state.pickUp);
-  //   const draftButtonRef = useRef();
+
+const NewDelivery = () => {
+  const { pickUpAddress, deliveryAddress } = useSelector(
+        (state) => state.currentOrder
+      );
+    
+      const dispatch = useDispatch()
+      const updatePickupAddress = () => {
+        dispatch(setPickupAddress("planet earth"))
+      };
+      const updateDeliveryAddress = () => {
+        dispatch(setDeliveryAddress("planet mars"))
+      };
+  
   return (
     <View>
       <View style={[styles.includestyle]}>
@@ -38,7 +27,8 @@ const NewDelivery  = () => {
           /> */}
 
         <Text style={{ color: "#A9A9A9" }}>Pickup address*</Text>
-        <TextInput style={{ fontWeight: "bold" }}>Search pickup location { PickUpAddress }</TextInput>
+        <TextInput style={{ fontWeight: "bold" }}>Search pickup location { pickUpAddress }</TextInput>
+        <Button title="Update Pickup Address" onPress={updatePickupAddress} />
       </View>
 
       <View style={[styles.includestyle]}>
@@ -48,8 +38,12 @@ const NewDelivery  = () => {
           /> */}
 
         <Text style={{ color: "#A9A9A9" }}>Delivery address*</Text>
-        <TextInput style={{ fontWeight: "bold" }}>Search delivery location { DeliveryAddress }</TextInput>
+        <TextInput style={{ fontWeight: "bold" }}>Search delivery location { deliveryAddress }</TextInput>
+        <Button title="Update Delivery Address" onPress={updateDeliveryAddress}/>
       </View>
+
+      {/* <Button title="Update Pickup Address" onPress={updatePickupAddress} />
+       <Button title="Update Delivery Address" onPress={updateDeliveryAddress}/> */}
 
       <View style={[styles.includestyle]}>
         {/* <Image
@@ -69,4 +63,5 @@ const NewDelivery  = () => {
   );
 };
 
-export default NewDelivery ;
+export default NewDelivery;
+
