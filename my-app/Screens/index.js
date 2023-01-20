@@ -10,6 +10,7 @@ import Register from "./Register";
 import TakeCam from "./TakeCam";
 import Address from "./Address"
 import CurrentLocationMap from "./Address/Map"
+import Order from './Order'
 
 const Stack = createStackNavigator();
 
@@ -23,7 +24,8 @@ export const routes = {
   Verification:Verification,
   TakeCam:TakeCam,
   Address:Address,
-  CurrentLocationMap:CurrentLocationMap
+  CurrentLocationMap:CurrentLocationMap,
+  Order:Order
   };
 
 const Router = () => {
