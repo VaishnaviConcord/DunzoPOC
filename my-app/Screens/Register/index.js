@@ -7,10 +7,10 @@ export default function Register() {
 
     const InputView = ({ onChangeText, placeholder, secureTextEntry, imagename, name, text }) => {
         return (
-            <View style={styles.SectionStyle}>
+            <View style={styles.sectionStyle}>
                 <Image
                     source={imagename}
-                    style={styles.ImageStyle}
+                    style={styles.imageStyle}
                 />
                 <TextInput style={{ flex: 1 }}
                     secureTextEntry={secureTextEntry}
@@ -23,7 +23,7 @@ export default function Register() {
         );
     }
 
-    handleChange = (event) => {
+   const handleChange = (event) => {
         if (event.name == "username") {
             userName = event.text
         }
@@ -89,29 +89,29 @@ export default function Register() {
     return (
         <View style={styles.container}>
             <>
-                <Text style={styles.signuptext}>Sign Up</Text>
+                <Text style={styles.signupText}>Sign Up</Text>
 
                 <InputView placeholder="Enter Your Name Here"
                     secureTextEntry="false"
-                    onChange={this.handleChange}
+                    onChange={handleChange}
                     name="username"
                     imagename={require('../Assets/name.png')}> </InputView>
 
                 <InputView placeholder="Enter Your Email Here"
                     secureTextEntry="false"
-                    onChange={this.handleChange}
+                    onChange={handleChange}
                     name="email"
                     imagename={require('../Assets/email.png')}> </InputView>
 
                 <InputView placeholder="Enter Your Password Here"
                     secureTextEntry="true"
-                    onChange={this.handleChange}
+                    onChange={handleChange}
                     name="password"
                     imagename={require('../Assets/password.png')}> </InputView>
 
                 <InputView placeholder="Enter Your Phone Number Here"
                     secureTextEntry="false"
-                    onChange={this.handleChange}
+                    onChange={handleChange}
                     name="phonenumber"
                     imagename={require('../Assets/phonenumber.png')}> </InputView>
 
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: "#FFFFFF",
     },
-    signuptext: {
+    signupText: {
         textAlign: 'center',
         fontSize: 24,
         marginBottom: 30,
@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
         marginTop: 50,
         color: '#FC8019',
     },
-    SectionStyle: {
+    sectionStyle: {
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         margin: 10,
     },
-    ImageStyle: {
+    imageStyle: {
         padding: 10,
         margin: 15,
         height: 20,
